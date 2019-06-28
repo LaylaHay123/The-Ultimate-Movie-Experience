@@ -31,10 +31,14 @@ def results():
 def work():
     if request.method == "POST":
         userdata = request.form
-        movname = userdata['movname']
-        # answers = model.getanswers(movname)
-        answers = "placeholder"
-        return render_template("imdbAnswers.html", movname = movname, answers = answers)
+        movname = userdata['information']
+        answers = model.getanswers(movname)
+        print(answers)
+        runtime = answers[0]
+        title = answers[1]
+        year = answers[2]
+        rating = answers[3]
+        return render_template("imdbAnswers.html", movname = movname, answers = answers, runtime = runtime, title = title, year = year, rating = rating)
     else:
         return "Enter IN a movie"
     

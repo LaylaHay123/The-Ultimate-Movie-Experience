@@ -23,9 +23,9 @@ def get_popcorn_size(minutes):
         size = "whole meal for this" 
     return size
 
-def getanswers():
-    return "Hello World"
+def getanswers(info):
+    response = requests.get('http://www.omdbapi.com/?apikey=e4402686&t=' + str(info)).json()
+    return [response["Runtime"], response["Title"], response["Year"], response["imdbRating"]]
 
-    
     
 
