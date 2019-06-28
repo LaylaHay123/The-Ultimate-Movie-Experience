@@ -5,3 +5,6 @@ def dict_from(olddict):
     for item in olddict.keys():
         newdict[item] = unicodedata.normalize("NFKD", olddict[item]).encode('ascii','ignore')
     return newdict
+
+def asciistring(unicodestring):
+    return unicodedata.normalize("NFKD", unicodestring).encode('ascii','ignore')
