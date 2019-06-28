@@ -30,7 +30,7 @@ def results():
 @app.route('/information', methods = ["GET", "POST"])
 def work():
     if request.method == "POST":
-        userdata = formopener.dict_from(request.form)
+        userdata = request.form
         movname = userdata['movname']
         # answers = model.getanswers(movname)
         answers = "placeholder"
@@ -40,7 +40,7 @@ def work():
     
 @app.route('/sendEmail', methods = ["GET", "POST"])
 def sendEmail():
-    userdata = formopener.dict_from(request.form)
+    userdata = request.form
     email = userdata['email'].decode("utf-8")
     emailBody = userdata['message'].decode("utf-8")
     message = Mail()
